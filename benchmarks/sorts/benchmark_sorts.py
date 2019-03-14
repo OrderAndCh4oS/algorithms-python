@@ -5,6 +5,7 @@ from script_benchmark_tools.script import Script
 
 from algorithms.sort.insertion_sort import insertion_sort
 from algorithms.sort.selection_sort import selection_sort
+from algorithms.sort.shell_sort import shell_sort
 from benchmarks.providers.random_list_provider import RandomListProvider
 
 
@@ -18,18 +19,20 @@ if __name__ == '__main__':
     all_scripts = (
         Script(selection_sort, 'sarcoma'),
         Script(insertion_sort, 'sarcoma'),
+        Script(shell_sort, 'sarcoma'),
     )
 
     print('Proofs\n------')
 
     for script in all_scripts:
-        print(script(arr=[6, 3, 1, 2, 5, 4]))
+        print(script(arr=[6, 3, 1, 2, 5, 4]), script.name(), script.user())
 
-    title = 'Benchmarks\n----------'
-    benchmarks = map(lambda n: run_scripts_with_n_random_list(all_scripts, n), [10, 50, 100, 500, 1000])
+    title = 'Benchmarks'
+    benchmarks = map(lambda n: run_scripts_with_n_random_list(all_scripts, n),
+                     [10, 50, 100, 500, 1000, 2500, 5000, 10000])
     results = [(n, result) for n, result in benchmarks]
 
-    display_benchmark_plot(results, title)
+    display_benchmark_plot(results, title, loglog=True)
 
     print(title)
     for n, result in results:
