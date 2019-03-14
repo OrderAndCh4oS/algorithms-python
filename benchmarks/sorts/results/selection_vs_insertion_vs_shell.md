@@ -1,56 +1,71 @@
 Proofs
 ------
-[1, 2, 3, 4, 5, 6] selection_sort sarcoma  
-[1, 2, 3, 4, 5, 6] insertion_sort sarcoma  
-[1, 2, 3, 4, 5, 6] shell_sort sarcoma  
+|  Input               |  Output              |  Script          |  User     |
+|----------------------|----------------------|------------------|-----------|
+|  [6, 3, 1, 2, 5, 4]  |  [1, 2, 3, 4, 5, 6]  |  selection_sort  |  sarcoma  |
+|  [6, 3, 1, 2, 5, 4]  |  [1, 2, 3, 4, 5, 6]  |  insertion_sort  |  sarcoma  |
+|  [6, 3, 1, 2, 5, 4]  |  [1, 2, 3, 4, 5, 6]  |  shell_sort      |  sarcoma  |
 
-![Plot](plots/selection_vs_insertion_vs_shell_loglog.png)
+Plot
+----
+
+![Log Log Plot](plots/selection_vs_insertion_vs_shell_loglog.png)
 
 Benchmarks
+----------
+
 N = 10
 ------
 |  min          |  avg          |  max          |  func            |  name     |
 |---------------|---------------|---------------|------------------|-----------|
-|  0.000004768  |  0.000005245  |  0.000010014  |  shell_sort      |  sarcoma  |
-|  0.000005245  |  0.000006764  |  0.000014544  |  insertion_sort  |  sarcoma  |
-|  0.000005960  |  0.000006535  |  0.000015974  |  selection_sort  |  sarcoma  |
+|  0.000005245  |  0.000005476  |  0.000006914  |  insertion_sort  |  sarcoma  |
+|  0.000005245  |  0.000005701  |  0.000018120  |  shell_sort      |  sarcoma  |
+|  0.000005960  |  0.000006473  |  0.000011683  |  selection_sort  |  sarcoma  |
 
 N = 50
 ------
 |  min          |  avg          |  max          |  func            |  name     |
 |---------------|---------------|---------------|------------------|-----------|
-|  0.000027180  |  0.000028000  |  0.000040531  |  insertion_sort  |  sarcoma  |
-|  0.000029087  |  0.000031655  |  0.000049353  |  shell_sort      |  sarcoma  |
-|  0.000087500  |  0.000091465  |  0.000141144  |  selection_sort  |  sarcoma  |
+|  0.000025511  |  0.000025902  |  0.000032902  |  insertion_sort  |  sarcoma  |
+|  0.000029087  |  0.000029533  |  0.000040770  |  shell_sort      |  sarcoma  |
+|  0.000087500  |  0.000090308  |  0.000140429  |  selection_sort  |  sarcoma  |
 
 N = 100
 ------
 |  min          |  avg          |  max          |  func            |  name     |
 |---------------|---------------|---------------|------------------|-----------|
-|  0.000053406  |  0.000054317  |  0.000066757  |  insertion_sort  |  sarcoma  |
-|  0.000057697  |  0.000062058  |  0.000078201  |  shell_sort      |  sarcoma  |
-|  0.000314236  |  0.000328972  |  0.000513077  |  selection_sort  |  sarcoma  |
+|  0.000046730  |  0.000048876  |  0.000078440  |  insertion_sort  |  sarcoma  |
+|  0.000056744  |  0.000060437  |  0.000115633  |  shell_sort      |  sarcoma  |
+|  0.000294209  |  0.000322647  |  0.000482321  |  selection_sort  |  sarcoma  |
 
 N = 500
 ------
 |  min          |  avg          |  max          |  func            |  name     |
 |---------------|---------------|---------------|------------------|-----------|
-|  0.000422716  |  0.000474439  |  0.000919580  |  shell_sort      |  sarcoma  |
-|  0.000458717  |  0.000501404  |  0.000687122  |  insertion_sort  |  sarcoma  |
-|  0.007782221  |  0.008367159  |  0.016639709  |  selection_sort  |  sarcoma  |
+|  0.000431538  |  0.000456047  |  0.000565529  |  shell_sort      |  sarcoma  |
+|  0.000464916  |  0.000497224  |  0.000648975  |  insertion_sort  |  sarcoma  |
+|  0.007962704  |  0.008335862  |  0.013140917  |  selection_sort  |  sarcoma  |
 
 N = 1000
 ------
 |  min          |  avg          |  max          |  func            |  name     |
 |---------------|---------------|---------------|------------------|-----------|
-|  0.000994444  |  0.001084704  |  0.001501799  |  shell_sort      |  sarcoma  |
-|  0.001444817  |  0.001556597  |  0.001766443  |  insertion_sort  |  sarcoma  |
-|  0.032369614  |  0.033579459  |  0.048047543  |  selection_sort  |  sarcoma  |
+|  0.001006842  |  0.001058760  |  0.001222849  |  shell_sort      |  sarcoma  |
+|  0.001463890  |  0.001522036  |  0.001635075  |  insertion_sort  |  sarcoma  |
+|  0.032132149  |  0.032556100  |  0.037361145  |  selection_sort  |  sarcoma  |
 
 N = 2500
 ------
 |  min          |  avg          |  max          |  func            |  name     |
 |---------------|---------------|---------------|------------------|-----------|
-|  0.003039837  |  0.003190722  |  0.003670454  |  shell_sort      |  sarcoma  |
-|  0.007866383  |  0.008084083  |  0.008517742  |  insertion_sort  |  sarcoma  |
-|  0.199978352  |  0.204706366  |  0.231896400  |  selection_sort  |  sarcoma  |
+|  0.003020763  |  0.003181493  |  0.003371716  |  shell_sort      |  sarcoma  |
+|  0.007767916  |  0.007960534  |  0.008136988  |  insertion_sort  |  sarcoma  |
+|  0.202460766  |  0.209702542  |  0.294028521  |  selection_sort  |  sarcoma  |
+
+N = 5000
+------
+|  min          |  avg          |  max          |  func            |  name     |
+|---------------|---------------|---------------|------------------|-----------|
+|  0.006912231  |  0.007103693  |  0.007475853  |  shell_sort      |  sarcoma  |
+|  0.029220343  |  0.029722197  |  0.030239820  |  insertion_sort  |  sarcoma  |
+|  0.810655594  |  0.819665184  |  0.860674620  |  selection_sort  |  sarcoma  |
