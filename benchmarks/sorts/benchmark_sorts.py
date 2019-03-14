@@ -29,7 +29,7 @@ if __name__ == '__main__':
 
     title = 'Benchmarks'
     benchmarks = map(lambda n: run_scripts_with_n_random_list(all_scripts, n),
-                     [10, 50, 100, 500, 1000, 2500, 5000, 10000])
+                     [10, 50, 100, 500, 1000, 2500])
     results = [(n, result) for n, result in benchmarks]
 
     display_benchmark_plot(results, title, loglog=True)
