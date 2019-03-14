@@ -6,15 +6,25 @@ def shell_sort(arr):
 
     h = 1
     while h < n / 3:
-        h = 3 * h+1
+        h = 3 * h + 1
 
     while h >= 1:
         for i in range(h, n):
-            for j in reversed(range(0, i + 1, h)):
-                if j < h or arr[j] >= arr[j-h]:
-                    break
-                arr[j - 1], arr[j] = arr[j], arr[j - 1]
+            j = i
+            while j >= h and arr[j] < arr[j - h]:
+                arr[j - h], arr[j] = arr[j], arr[j - h]
+                j -= h
+        assert is_h_sorted(arr, h)
         h = int(h / 3)
+
+    return arr
+
+
+def is_h_sorted(arr, h):
+    for i in range(h, len(arr)):
+        if arr[i] < arr[i - h]:
+            return False
+    return True
 
 
 if __name__ == '__main__':
@@ -24,6 +34,5 @@ if __name__ == '__main__':
 
     long_unsorted_list = [x for x in range(100)]
     shuffle(long_unsorted_list)
-    print(long_unsorted_list)
     shell_sort(long_unsorted_list)
     print(long_unsorted_list)
