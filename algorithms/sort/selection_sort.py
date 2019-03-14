@@ -8,6 +8,6 @@ def selection_sort(arr):
 
 
 if __name__ == '__main__':
-    unsorted_list = [3, 1, 2, 5, 4]
+    unsorted_list = [6, 3, 1, 2, 5, 4]
     selection_sort(unsorted_list)
     print(unsorted_list)
