@@ -3,7 +3,7 @@ Proofs
 [1, 2, 3, 4, 5, 6] insertion_sort sarcoma  
 [1, 2, 3, 4, 5, 6] shell_sort sarcoma
 
-[plot](plots/insertion_vs_shell_loglog.png)
+![plot](plots/insertion_vs_shell_loglog.png)
 
 Benchmarks
 ----------
