@@ -3,21 +3,25 @@ from script_benchmark_tools.display_benchmark_results import display_benchmark_r
 from script_benchmark_tools.run_benchmarks import run_benchmarks
 from script_benchmark_tools.script import Script
 
+from algorithms.sort.bubble_sort import bubble_sort
 from algorithms.sort.insertion_sort import insertion_sort
 from algorithms.sort.selection_sort import selection_sort
+from algorithms.sort.shell_sort import shell_sort
 from benchmarks.providers.random_list_provider import RandomListProvider
 
 
 def run_scripts_with_n_random_list(scripts, n):
-    arr_provider = RandomListProvider(n, 0, 100)
+    arr_provider = RandomListProvider(n, 0, 1000)
     return n, run_benchmarks(scripts, arr_provider, 100)
 
 
 if __name__ == '__main__':
 
     all_scripts = (
+        Script(bubble_sort, 'sarcoma'),
         Script(selection_sort, 'sarcoma'),
         Script(insertion_sort, 'sarcoma'),
+        Script(shell_sort, 'sarcoma'),
     )
 
     print('Proofs\n------')
