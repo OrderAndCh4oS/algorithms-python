@@ -4,10 +4,12 @@ from random import shuffle
 def selection_sort(arr):
     length = len(arr)
     for i in range(length):
-        index = i
+        min_item = i
         for j in range(i + 1, length):
-            if arr[j] < arr[index]:
-                arr[index], arr[j] = arr[j], arr[index]
+            if arr[j] < arr[min_item]:
+                min_item = j
+
+        arr[min_item], arr[i] = arr[i], arr[min_item]
 
     return arr
 

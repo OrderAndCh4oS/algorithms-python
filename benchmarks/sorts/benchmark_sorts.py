@@ -4,7 +4,7 @@ from script_benchmark_tools.run_benchmarks import run_benchmarks
 from script_benchmark_tools.script import Script
 from terminal_table import Table
 
-from algorithms.sort.bubble_sort import bubble_sort
+from algorithms.sort.bubble_sort import not_bubble_sort, bubble_sort
 from algorithms.sort.insertion_sort import insertion_sort
 from algorithms.sort.selection_sort import selection_sort
 from algorithms.sort.shell_sort import shell_sort
@@ -19,7 +19,8 @@ def run_scripts_with_n_random_list(scripts, n):
 if __name__ == '__main__':
 
     all_scripts = (
-        Script(bubble_sort, 'sarcoma'),
+        Script(not_bubble_sort, 'sarcoma'),
+        Script(bubble_sort, 'geeks_for_geeks'),
         Script(selection_sort, 'sarcoma'),
         Script(insertion_sort, 'sarcoma'),
         Script(shell_sort, 'sarcoma'),

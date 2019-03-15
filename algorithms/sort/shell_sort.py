@@ -14,7 +14,6 @@ def shell_sort(arr):
             while j >= h and arr[j] < arr[j - h]:
                 arr[j - h], arr[j] = arr[j], arr[j - h]
                 j -= h
-        assert is_h_sorted(arr, h)
         h = int(h / 3)
 
     return arr
