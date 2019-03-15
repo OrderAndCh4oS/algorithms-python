@@ -2,6 +2,7 @@ from script_benchmark_tools.charts.plot_visual import display_benchmark_plot
 from script_benchmark_tools.display_benchmark_results import display_benchmark_results
 from script_benchmark_tools.run_benchmarks import run_benchmarks
 from script_benchmark_tools.script import Script
+from terminal_table import Table
 
 from algorithms.sort.bubble_sort import bubble_sort
 from algorithms.sort.insertion_sort import insertion_sort
@@ -26,16 +27,27 @@ if __name__ == '__main__':
 
     print('Proofs\n------')
 
-    for script in all_scripts:
-        print(script(arr=[6, 3, 1, 2, 5, 4]))
+    print(
+        Table.create(
+            [(
+                "[6, 3, 1, 2, 5, 4]",
+                str(script(arr=[6, 3, 1, 2, 5, 4])),
+                script.name(),
+                script.user()
+            ) for script in all_scripts],
+            ('Input', 'Output', 'Script', 'User')
+        )
+    )
 
-    title = 'Benchmarks\n----------'
-    benchmarks = map(lambda n: run_scripts_with_n_random_list(all_scripts, n), [10, 50, 100, 500, 1000])
+    title = 'Benchmarks'
+    benchmarks = map(lambda n: run_scripts_with_n_random_list(all_scripts, n),
+                     [10, 50, 100, 500, 1000, 2500, 5000])
     results = [(n, result) for n, result in benchmarks]
 
-    display_benchmark_plot(results, title)
+    display_benchmark_plot(results, title, loglog=True)
 
-    print(title)
+    print('%s\n----------\n' % title)
+
     for n, result in results:
         print('N = %d\n------' % n)
         display_benchmark_results(result)
