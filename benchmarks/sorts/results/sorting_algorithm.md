@@ -15,7 +15,7 @@ Proofs
 Plots
 -----
 
-![Sorting Algorithm Benchmark Results](plots/sorting_algorithm.png)
+![Sorting Algorithm Benchmark Results](sorting_algorithm.png)
 
 Sorting Algorithm Benchmark Results
 ----------
