@@ -1,8 +1,6 @@
-from script_benchmark_tools.charts.plot_visual import display_benchmark_plot
-from script_benchmark_tools.display_benchmark_results import display_benchmark_results
+from script_benchmark_tools import generate_benchmarks
 from script_benchmark_tools.run_benchmarks import run_benchmarks
 from script_benchmark_tools.script import Script
-from terminal_table import Table
 
 from algorithms.sort.bubble_sort import bubble_sort
 from algorithms.sort.insertion_sort import insertion_sort
@@ -18,10 +16,13 @@ def run_scripts_with_n_random_list(scripts, n):
     return n, run_benchmarks(scripts, arr_provider, 100)
 
 
-if __name__ == '__main__':
-
-    print('Proofs\n------')
-    all_scripts = (
+benchmark_data = {
+    'title': 'Sorting Algorithm Benchmark Results',
+    'proof_data': [6, 3, 1, 2, 5, 4],
+    'filename': 'sorting_algorithm',
+    'n_steps': [3, 5, 10, 100, 500, 1000, 2500, 5000, 10000],
+    'benchmark': run_scripts_with_n_random_list,
+    'scripts': (
         Script(bubble_sort, 'sarcoma'),
         Script(selection_sort, 'sarcoma'),
         Script(insertion_sort, 'sarcoma'),
@@ -29,32 +30,7 @@ if __name__ == '__main__':
         Script(merge_sort, 'sarcoma'),
         Script(quick_sort, 'sarcoma'),
     )
+}
 
-    print('Plots\n-----')
-
-    print('![Plot Benchmarks](plots/all_plots_loglog.png)')
-
-    print(
-        Table.create(
-            [(
-                "[6, 3, 1, 2, 5, 4]",
-                str(script(arr=[6, 3, 1, 2, 5, 4])),
-                script.name(),
-                script.user()
-            ) for script in all_scripts],
-            ('Input', 'Output', 'Script', 'User')
-        )
-    )
-
-    title = 'Benchmarks'
-    benchmarks = map(lambda n: run_scripts_with_n_random_list(all_scripts, n),
-                     [5, 10, 100, 250, 500, 1000, 2500, 5000])
-    results = [(n, result) for n, result in benchmarks]
-
-    display_benchmark_plot(results, title, loglog=True)
-
-    print('%s\n----------\n' % title)
-
-    for n, result in results:
-        print('N = %d\n------' % n)
-        display_benchmark_results(result)
+if __name__ == '__main__':
+    generate_benchmarks(**benchmark_data)
