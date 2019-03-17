@@ -25,7 +25,7 @@ def quick_sort(arr):
 
 if __name__ == '__main__':
     from script_benchmark_tools import Script
-    from script_benchmark_tools.benchmarks_report import generate_benchmark_report
+    from script_benchmark_tools.benchmark_report import generate_benchmark_report
     from benchmarks.run_scripts.run_scripts_with_n_random_list import run_scripts_with_n_random_list
 
     filename = 'quick_sort_algorithm'
