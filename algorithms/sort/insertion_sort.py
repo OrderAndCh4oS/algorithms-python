@@ -1,5 +1,6 @@
 def insertion_sort(arr):
-    for i in range(len(arr)):
+    n = len(arr)
+    for i in range(n):
         for j in reversed(range(i + 1)):
             if j is 0 or arr[j-1] < arr[j]:
                 break
