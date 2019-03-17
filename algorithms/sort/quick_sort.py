@@ -1,6 +1,3 @@
-from random import shuffle
-
-
 def partition(arr, low, high):
     pivot = arr[high]
     i = low - 1
@@ -27,11 +24,27 @@ def quick_sort(arr):
 
 
 if __name__ == '__main__':
-    unsorted_list = [6, 3, 1, 2, 5, 4, 8, 9, 10]
-    print(quick_sort(unsorted_list))
-    print(unsorted_list)
+    from script_benchmark_tools import Script
+    from script_benchmark_tools.benchmarks_report import generate_benchmark_report, save_plot, save_benchmark_results
+    from benchmarks.run_scripts.run_scripts_with_n_random_list import run_scripts_with_n_random_list
 
-    long_unsorted_list = [x for x in range(101)]
-    shuffle(long_unsorted_list)
-    print(quick_sort(long_unsorted_list))
-    print(long_unsorted_list)
+    filename = 'quick_sort_algorithm'
+
+    benchmark_data = {
+        'title': 'Quick Sort Benchmark Results',
+        'proof_data': [6, 3, 1, 2, 5, 4],
+        'filename': filename,
+        'n_steps': [3, 5, 10, 100, 500, 1000],
+        'benchmark': run_scripts_with_n_random_list,
+        'scripts': (
+            Script(quick_sort, 'sarcoma'),
+        ),
+    }
+
+    output, plot = generate_benchmark_report(**benchmark_data)
+
+    save_benchmark_results(output, filename)
+    print(output)
+
+    save_plot(plot, filename)
+    plot.show()

@@ -1,6 +1,3 @@
-from random import shuffle
-
-
 def insertion_sort(arr):
     for i in range(len(arr)):
         for j in reversed(range(i + 1)):
@@ -12,10 +9,27 @@ def insertion_sort(arr):
 
 
 if __name__ == '__main__':
-    unsorted_list = [6, 3, 1, 2, 5, 4]
-    insertion_sort(unsorted_list)
-    print(unsorted_list)
-    long_unsorted_list = [x for x in range(100)]
-    shuffle(long_unsorted_list)
-    insertion_sort(long_unsorted_list)
-    print(long_unsorted_list)
+    from script_benchmark_tools import Script
+    from script_benchmark_tools.benchmarks_report import generate_benchmark_report, save_plot, save_benchmark_results
+    from benchmarks.run_scripts.run_scripts_with_n_random_list import run_scripts_with_n_random_list
+
+    filename = 'insertion_sort_algorithm'
+
+    benchmark_data = {
+        'title': 'Insertion Sort Benchmark Results',
+        'proof_data': [6, 3, 1, 2, 5, 4],
+        'filename': filename,
+        'n_steps': [3, 5, 10, 100, 500, 1000],
+        'benchmark': run_scripts_with_n_random_list,
+        'scripts': (
+            Script(insertion_sort, 'sarcoma'),
+        ),
+    }
+
+    output, plot = generate_benchmark_report(**benchmark_data)
+
+    save_benchmark_results(output, filename)
+    print(output)
+
+    save_plot(plot, filename)
+    plot.show()

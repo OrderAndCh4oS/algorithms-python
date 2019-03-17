@@ -1,6 +1,3 @@
-from random import shuffle
-
-
 def merge_sort(arr):
     if len(arr) <= 1:
         return arr
@@ -21,12 +18,27 @@ def merge(left, right):
 
 
 if __name__ == '__main__':
-    print(merge([1, 4], [2, 3, 5]))
-    unsorted_list = [6, 3, 1, 2, 5, 4, 8, 9, 10]
-    print(merge_sort(unsorted_list))
-    print(unsorted_list)
+    from script_benchmark_tools import Script
+    from script_benchmark_tools.benchmarks_report import generate_benchmark_report, save_benchmark_results, save_plot
+    from benchmarks.run_scripts.run_scripts_with_n_random_list import run_scripts_with_n_random_list
 
-    long_unsorted_list = [x for x in range(101)]
-    shuffle(long_unsorted_list)
-    print(merge_sort(long_unsorted_list))
-    print(long_unsorted_list)
+    filename = 'merge_sort_algorithm'
+
+    benchmark_data = {
+        'title': 'Merge Sort Benchmark Results',
+        'proof_data': [6, 3, 1, 2, 5, 4],
+        'filename': filename,
+        'n_steps': [3, 5, 10, 100, 500, 1000],
+        'benchmark': run_scripts_with_n_random_list,
+        'scripts': (
+            Script(merge_sort, 'sarcoma'),
+        ),
+    }
+
+    output, plot = generate_benchmark_report(**benchmark_data)
+
+    save_benchmark_results(output, filename)
+    print(output)
+
+    save_plot(plot, filename)
+    plot.show()
