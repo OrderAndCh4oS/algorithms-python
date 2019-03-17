@@ -19,7 +19,7 @@ def merge(left, right):
 
 if __name__ == '__main__':
     from script_benchmark_tools import Script
-    from script_benchmark_tools.benchmarks_report import generate_benchmark_report, save_benchmark_results, save_plot
+    from script_benchmark_tools.benchmarks_report import generate_benchmark_report
     from benchmarks.run_scripts.run_scripts_with_n_random_list import run_scripts_with_n_random_list
 
     filename = 'merge_sort_algorithm'
@@ -33,12 +33,10 @@ if __name__ == '__main__':
         'scripts': (
             Script(merge_sort, 'sarcoma'),
         ),
+        'use_ansi': True
     }
 
     output, plot = generate_benchmark_report(**benchmark_data)
 
-    save_benchmark_results(output, filename)
     print(output)
-
-    save_plot(plot, filename)
     plot.show()
