@@ -1,85 +1,23 @@
-class Heap:
-    """
-    Note: https://algs4.cs.princeton.edu/24pq/Heap.java.html
-    """
-    heap = []
+import random
 
-    def __init__(self, arr):
-        """
-        Read in a list of items
-        :param arr:
-        """
-        pass
+from algorithms.priority_queue.priority_queue import PriorityQueue
 
-    def insert(self, a):
-        """
-        Insert an item
-        :param a:
-        :return:
-        """
-        pass
 
-    def contains(self, a):
-        """
-        Does the heap contain the given item
-        :param a:
-        :return:
-        """
-        return False
+def heap_sort(priority_queue):
+    arr = []
+    for _ in range(priority_queue.size()):
+        arr.insert(0, priority_queue.delete_max())
 
-    def sort(self, pq):
-        """
-        Sort the heap
-        :param pq:
-        :return:
-        """
-        pass
+    return arr
 
-    def swim(self, pq, i, j):
-        """
-        Move higher parent until it has lower children or is at the root
-        :param pq:
-        :param i:
-        :param j:
-        :return:
-        """
-        pass
 
-    def sink(self, pq, i, j):
-        """
-        Move lower parent until it has a higher parent or is at the root
-        :param pq:
-        :param i:
-        :param j:
-        :return:
-        """
-        pass
+if __name__ == '__main__':
+    pq = PriorityQueue()
 
-    def less(self, pq, i, j):
-        """
-        Boolean to check if i is lower than j
-        :param pq:
-        :param i:
-        :param j:
-        :return:
-        """
-        pass
+    arr = list(range(100))
+    random.shuffle(arr)
 
-    def exchange(self, pq, i, j):
-        """
-        Swap items
-        :param pq:
-        :param i:
-        :param j:
-        :return:
-        """
-        pass
+    for x in arr:
+        pq.insert(x)
 
-    def remove_max(self):
-        pass
-
-    def __repr__(self):
-        pass
-
-    def __str__(self):
-        pass
+    print(heap_sort(pq))

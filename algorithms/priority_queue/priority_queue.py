@@ -91,7 +91,7 @@ if __name__ == '__main__':
     for _ in range(17):
         print(pq)
         maximum = pq.delete_max()
-        sorted_arr.append(maximum)
+        sorted_arr.insert(0, maximum)
         print('Result')
         print(pq)
         print('________')
