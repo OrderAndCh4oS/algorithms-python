@@ -12,8 +12,6 @@ class PriorityQueue:
     def insert(self, a):
         self.priority_queue.append(a)
         self.n += 1
-        if self.is_empty():
-            return
         self.swim(self.size())
 
         assert self.is_max_heap(1)
@@ -56,7 +54,7 @@ class PriorityQueue:
     def max(self):
         return self.priority_queue[1]
 
-    def delete_max(self):
+    def pop_max(self):
         self.exchange(1, self.size())
         maximum = self.priority_queue.pop()
         self.n -= 1
@@ -90,7 +88,7 @@ if __name__ == '__main__':
 
     for _ in range(17):
         print(pq)
-        maximum = pq.delete_max()
+        maximum = pq.pop_max()
         sorted_arr.insert(0, maximum)
         print('Result')
         print(pq)

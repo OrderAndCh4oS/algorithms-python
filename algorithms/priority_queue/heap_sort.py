@@ -6,7 +6,7 @@ from algorithms.priority_queue.priority_queue import PriorityQueue
 def heap_sort(priority_queue):
     arr = []
     for _ in range(priority_queue.size()):
-        arr.insert(0, priority_queue.delete_max())
+        arr.insert(0, priority_queue.pop_max())
 
     return arr
 
